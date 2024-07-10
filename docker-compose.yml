@@ -1,0 +1,25 @@
+version: "3"
+services:
+  redis:
+    image: elestio/valkey:${SOFTWARE_VERSION_TAG}
+    command: redis-server --save 10 1 --loglevel warning --requirepass ${SOFTWARE_PASSWORD} #--tls-port 6380 --port 6379 --tls-ca-cert-file /data/ca.crt --tls-cert-file /data/redis.crt --tls-key-file /data/redis.key
+    shm_size: "1g"
+    env_file:
+      - .env
+    volumes:
+      - ./data:/data
+    restart: always
+    ports:
+      - "26379:6379"
+      - "6380:6380"
+  redisinsight:
+    image: redislabs/redisinsight:1.14.0
+    restart: always
+    user: 0:0
+    environment:
+      - RIPROXYENABLE=true
+      - RITRUSTEDORIGINS=https://${DOMAIN}
+    ports:
+      - "172.17.0.1:8001:8001"
+    volumes:
+      - ./insight:/db
