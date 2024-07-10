@@ -10,7 +10,7 @@
 
 [Valkey](https://valkey.io): an open source, in-memory data store
 
-<img src="https://github.com/elestio-examples/valkey/raw/main//tests/valkey.png" alt="Valkey" width="800">
+<img src="https://github.com/elestio-examples/valkey/raw/main//tests/valkey.png" alt="Valkey" width="400">
 
 Deploy a <a target="_blank" href="https://elest.io/open-source/valkey">fully managed valkey</a> on <a target="_blank" href="https://elest.io/">elest.io</a> if you want automated backups, reverse proxy with SSL termination, firewall, automated OS & Software updates, and a team of Linux experts and open source enthusiasts to ensure your services are always safe, and functional.
 
